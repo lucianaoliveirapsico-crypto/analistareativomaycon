@@ -1,92 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Analista Reativo</title>
-
 <style>
-body {
-margin: 0;
-padding: 0;
-font-family: Arial, sans-serif;
-background: #f3f3f3;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-text-align: center;
-}
-
-.container {
-background: white;
-padding: 30px;
-border-radius: 12px;
-box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-width: 90%;
-max-width: 500px;
-}
-
-.header {
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 20px;
-}
-
-.header img {
-width: 70px;
-height: 70px;
-border-radius: 50%;
-object-fit: cover;
-margin-right: 15px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-h1 {
-font-size: 22px;
-margin: 0;
-color: #333;
-}
-
-p {
-font-size: 16px;
-margin-bottom: 25px;
-color: #444;
-}
-
-a.button {
-display: inline-block;
-background: #0057ff;
-color: white;
-padding: 14px 22px;
-border-radius: 8px;
-text-decoration: none;
-font-size: 17px;
-font-weight: bold;
-transition: 0.2s;
-}
-
-a.button:hover {
-background: #0040c9;
-}
+:root{--bg:#f6f7fb;--card:#fff;--accent:#2e5fff;--muted:#6b7280;--danger:#c62828}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#111;background:var(--bg);-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:40px auto;padding:20px}
+.card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 8px 30px rgba(19,24,31,0.06);text-align:center}
+.header{display:flex;align-items:center;gap:16px;justify-content:center}
+.avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;box-shadow:0 6px 18px rgba(2,6,23,0.08)}
+h1{margin:0;font-size:22px}
+.subtitle{color:var(--muted);margin-top:8px;font-size:15px}
+.desc{margin:18px 0 8px;font-size:15px;color:#222;line-height:1.45}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600;margin-top:12px}
+.cta:active{transform:translateY(1px)}
+.meta{margin-top:16px;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.step{background:#fbfbfe;border-radius:10px;padding:10px;font-size:14px;color:#333}
+.notice{margin-top:18px;text-align:left;background:#fff6f6;border-left:4px solid var(--danger);padding:12px;border-radius:8px;color:#4a0000}
+.ethic{margin-top:14px;text-align:left;color:var(--muted);font-size:13px}
+footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+a.privacy{color:var(--muted);text-decoration:underline}
+/* modal */
+.modal-back{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;z-index:30}
+.modal{background:var(--card);padding:18px;border-radius:12px;max-width:440px;width:90%;box-shadow:0 10px 30px rgba(2,6,23,0.2)}
+.modal p{margin:8px 0;color:#222}
+.modal .row{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+button{cursor:pointer}
+.btn-cancel{background:#eef2ff;border:none;padding:8px 12px;border-radius:8px}
+.btn-confirm{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:8px}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
-<div class="container">
-
+<div class="wrap">
+<div class="card" role="main">
 <div class="header">
-<img src="foto-maycon.jpg" alt="Foto de Maycon">
-<h1>Fale com o Analista Reativo</h1>
+<img class="avatar" src="foto-maycon.jpg" alt="Foto do Maycon">
+<div style="text-align:left;">
+<h1>Analista Reativo</h1>
+<div class="subtitle">Uma voz simbólica para reflexão — criado por Maycon Barboza</div>
+</div>
 </div>
 
-<p>Clique no botão abaixo para abrir o chat em tela cheia.</p>
+<p class="desc">
+O Analista Reativo propõe leituras curtas e firmes sobre vínculos, padrões e conflitos internos.
+Serve como instrumento reflexivo — não substitui acompanhamento clínico.
+</p>
 
-<a class="button" href="https://chatgpt.com/g/g-69165cf9e8448191b874327dc72a64c7-analista-reativo">
-Abrir Chat
-</a>
+<a id="openChat" class="cta" href="#" role="button">Abrir conversa</a>
 
+<div class="meta">
+<span style="font-weight:600">Como funciona:</span> clique em “Abrir conversa”, escreva brevemente o que quer trazer e use as respostas como ponto de reflexão.
 </div>
+
+<div class="grid" aria-hidden="false">
+<div class="step"><strong>1</strong><br>Abra o chat</div>
+<div class="step"><strong>2</strong><br>Traga algo breve</div>
+<div class="step"><strong>3</strong><br>Use a resposta para pensar — leve para sessão se desejar</div>
+</div>
+
+<div class="notice" aria-live="polite">
+<strong>Aviso importante:</strong> este assistente não fornece diagnóstico, orientações médicas, nutricionais ou terapêuticas. Não substitui terapia.
+</div>
+
+<div class="ethic">
+<strong>Em caso de risco ou crise:</strong> procure ajuda imediata. No Brasil, o CVV atende 24h pelo <strong>188</strong>.
+</div>
+
+<div style="margin-top:14px;text-align:left;color:var(--muted);font-size:13px">
+<strong>Confidencialidade:</strong> as conversas são privadas. Maycon não tem acesso ao conteúdo trocado via este link.
+</div>
+
+<footer>
+<div style="margin-bottom:6px">Criado por Luciana — projeto e curadoria</div>
+<a class="privacy" href="privacy.html">Política de Privacidade</a>
+</footer>
+</div>
+</div>
+
+<!-- modal de confirmação -->
+<div id="modal" class="modal-back" role="dialog" aria-modal="true">
+<div class="modal">
+<p><strong>Antes de abrir:</strong> este assistente oferece escuta simbólica e reflexiva. Não substitui acompanhamento clínico nem orientações médicas.</p>
+<p>Deseja continuar para a conversa?</p>
+<div class="row">
+<button class="btn-cancel" id="cancel">Cancelar</button>
+<button class="btn-confirm" id="confirm">Continuar</button>
+</div>
+</div>
+</div>
+
+<script>
+const CHAT_URL = "https://chatgpt.com/g/g-69165cf9e8448191b874327dc72a64c7-analista-reativo";
+document.getElementById('openChat').addEventListener('click', e=>{
+e.preventDefault();
+document.getElementById('modal').style.display = 'flex';
+});
+document.getElementById('cancel').addEventListener('click', ()=> {
+document.getElementById('modal').style.display = 'none';
+});
+document.getElementById('confirm').addEventListener('click', ()=> {
+window.open(CHAT_URL, "_blank");
+document.getElementById('modal').style.display = 'none';
+});
+</script>
 </body>
 </html>
